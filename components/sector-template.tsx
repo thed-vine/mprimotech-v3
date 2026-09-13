@@ -3,8 +3,7 @@ import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ServiceCard from "@/components/service-card"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 interface SectorTemplateProps {
   sectorName: string
@@ -36,47 +35,54 @@ export default function SectorTemplate({
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <section className="bg-background border-b border-border py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 mb-4 text-white/80 text-sm">
-              <Link href="/sectors" className="hover:text-white">
+            <div className="flex items-center gap-2 mb-6 text-sm text-muted-foreground">
+              <Link href="/sectors" className="hover:text-foreground transition-colors">
                 Sectors
               </Link>
-              <ArrowRight className="h-4 w-4" />
-              <span>{sectorName}</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+              <span className="text-foreground">{sectorName}</span>
             </div>
-            <div className="flex items-center gap-4 mb-4">
-              {/* <span className="text-5xl">{icon}</span> */}
-              <h1 className="text-2xl md:text-5xl font-bold">{sectorName}</h1>
-            </div>
-            <p className="text-lg md:text-xl opacity-90 max-w-2xl">{overview}</p>
+            <h1 className="text-4xl sm:text-5xl font-serif text-foreground mb-4 text-balance">
+              {sectorName}
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              {overview}
+            </p>
           </div>
         </section>
 
         {/* Overview Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 sm:py-20 bg-background">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-lg md:text-3xl font-bold text-foreground mb-6">Industry Context</h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Organizations in {sectorName.toLowerCase()} face unique operational and administrative challenges. Disconnected systems, manual forms, and repetitive processes create daily friction. MPrimo Tech brings practical on-site expertise to map out messy workflows and automate admin bottlenecks.
+            <h2 className="text-sm font-semibold tracking-widest uppercase text-foreground mb-6">
+              Industry Context
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Organizations in {sectorName.toLowerCase()} face unique operational and administrative challenges.
+              Disconnected systems, manual forms, and repetitive processes create daily friction.
+              MPrimo Tech brings practical on-site expertise to map out messy workflows and automate admin bottlenecks.
             </p>
           </div>
         </section>
 
         {/* Key Challenges */}
-        <section className="py-16 bg-background">
+        <section className="py-16 sm:py-20 bg-secondary/30 border-y border-border">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-lg md:text-3xl font-bold text-foreground mb-8">Common Challenges</h2>
-            <div className="space-y-4">
+            <h2 className="text-sm font-semibold tracking-widest uppercase text-foreground mb-8">
+              Common Challenges
+            </h2>
+            <div className="space-y-0">
               {challenges.map((challenge, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 p-4 rounded-lg bg-white border border-border hover:shadow-md transition"
+                  className="flex gap-4 py-5 border-b border-border last:border-0"
                 >
-                  <div className="h-5 w-5 md:h-8 md:w-8 rounded-full bg-accent text-primary font-bold flex items-center justify-center flex-shrink-0 text-sm">
-                    {index + 1}
-                  </div>
-                  <p className="text-foreground font-medium pt-1">{challenge}</p>
+                  <span className="text-sm text-muted-foreground font-serif mt-0.5">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-foreground leading-relaxed">{challenge}</p>
                 </div>
               ))}
             </div>
@@ -84,16 +90,24 @@ export default function SectorTemplate({
         </section>
 
         {/* Solutions */}
-        <section className="py-16 bg-white">
+        <section className="py-16 sm:py-20 bg-background">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl md:text-3xl font-bold text-foreground mb-8">Our Approach</h2>
-            <div className="space-y-4">
+            <h2 className="text-sm font-semibold tracking-widest uppercase text-foreground mb-8">
+              Our Approach
+            </h2>
+            <div className="space-y-0">
               {solutions.map((solution, index) => (
-                <div key={index} className="flex gap-4 p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition">
-                  <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-accent flex-shrink-0 mt-0.5" />
+                <div key={index} className="flex gap-4 py-5 border-b border-border last:border-0">
+                  <span className="text-lg font-serif text-accent flex-shrink-0">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{solution.title}</h3>
-                    <p className="text-muted-foreground text-sm">{solution.description}</p>
+                    <h3 className="font-semibold text-foreground mb-1 text-[15px]">
+                      {solution.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {solution.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -102,10 +116,12 @@ export default function SectorTemplate({
         </section>
 
         {/* Related Services */}
-        <section className="py-16 bg-background">
+        <section className="py-16 sm:py-20 bg-secondary/20 border-y border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl md:text-3xl font-bold text-foreground mb-12 text-center">Recommended Services</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <h2 className="text-sm font-semibold tracking-widest uppercase text-foreground mb-10">
+              Recommended Services
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {relatedServices.map((service) => (
                 <ServiceCard key={service.href} {...service} />
               ))}
@@ -114,15 +130,22 @@ export default function SectorTemplate({
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-background">
+        <section className="py-20 sm:py-24 bg-gradient-to-br from-[#14305f] to-[#0A1F44] text-[#ece7db]">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-lg md:text-3xl font-bold text-foreground mb-4">Ready to Streamline Admin for {sectorName}?</h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8">
-              Speak with our UK team to discuss how we can review your workflow on site and remove administrative bottlenecks.
+            <h2 className="text-3xl sm:text-4xl font-serif mb-4">
+              Ready to Streamline Admin for {sectorName}?
+            </h2>
+            <p className="text-[#ece7db]/70 mb-8 leading-relaxed">
+              Speak with our UK team to discuss how we can review your workflow on site
+              and remove administrative bottlenecks.
             </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
-              <Link href="/contact">Schedule an On-Site Review</Link>
-            </Button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-[#ece7db] text-[#0A1F44] hover:bg-white transition-colors"
+            >
+              Schedule an On-Site Review
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </section>
       </main>

@@ -6,6 +6,13 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Clock } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import {
+  CardContainer,
+  CardBody,
+  CardItem,
+} from "@/components/ui/3d-card";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -76,8 +83,9 @@ export default function ContactPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary to-primary/80 text-white">
-          <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 text-center">
+        <section className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary to-primary/80 text-white overflow-hidden">
+          <BackgroundBeams className="absolute inset-0 opacity-30" />
+          <div className="relative z-10 mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Get In Touch
             </h1>
@@ -100,48 +108,83 @@ export default function ContactPage() {
         <section className="py-8 sm:py-12 lg:py-16 bg-background">
           <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12">
-              <div className="p-4 sm:p-6 rounded-lg bg-white border border-border text-center hover:shadow-lg transition">
-                <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">
-                  Email
-                </h3>
-                <a
-                  href="mailto:info@mprimotech.com"
-                  className="text-xs sm:text-sm text-primary hover:underline"
-                >
-                  info@mprimotech.com
-                </a>
-              </div>
-              <div className="p-4 sm:p-6 rounded-lg bg-white border border-border text-center hover:shadow-lg transition">
-                <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">
-                  Phone
-                </h3>
-                <a
-                  href="tel:++443302237450"
-                  className="text-xs sm:text-sm text-primary hover:underline"
-                >
-                  +44 (330) 223-7450
-                </a>
-              </div>
-              <div className="p-4 sm:p-6 rounded-lg bg-white border border-border text-center hover:shadow-lg transition">
-                <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">
-                  Hours
-                </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">24/7</p>
-              </div>
+              <CardContainer containerClassName="py-0" className="inter-var w-full">
+                <CardBody className="h-full flex flex-col items-center text-center p-4 sm:p-6 bg-card border border-border hover:shadow-lg transition">
+                  <CardItem translateZ={30}>
+                    <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
+                  </CardItem>
+                  <CardItem
+                    as="h3"
+                    translateZ={50}
+                    className="text-sm sm:text-base font-bold text-foreground mb-2"
+                  >
+                    Email
+                  </CardItem>
+                  <CardItem translateZ={40}>
+                    <a
+                      href="mailto:info@mprimotech.com"
+                      className="text-xs sm:text-sm text-primary hover:underline"
+                    >
+                      info@mprimotech.com
+                    </a>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+              <CardContainer containerClassName="py-0" className="inter-var w-full">
+                <CardBody className="h-full flex flex-col items-center text-center p-4 sm:p-6 bg-card border border-border hover:shadow-lg transition">
+                  <CardItem translateZ={30}>
+                    <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
+                  </CardItem>
+                  <CardItem
+                    as="h3"
+                    translateZ={50}
+                    className="text-sm sm:text-base font-bold text-foreground mb-2"
+                  >
+                    Phone
+                  </CardItem>
+                  <CardItem translateZ={40}>
+                    <a
+                      href="tel:++443302237450"
+                      className="text-xs sm:text-sm text-primary hover:underline"
+                    >
+                      +44 (330) 223-7450
+                    </a>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+              <CardContainer containerClassName="py-0" className="inter-var w-full">
+                <CardBody className="h-full flex flex-col items-center text-center p-4 sm:p-6 bg-card border border-border hover:shadow-lg transition">
+                  <CardItem translateZ={30}>
+                    <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-3 sm:mb-4" />
+                  </CardItem>
+                  <CardItem
+                    as="h3"
+                    translateZ={50}
+                    className="text-sm sm:text-base font-bold text-foreground mb-2"
+                  >
+                    Hours
+                  </CardItem>
+                  <CardItem
+                    as="p"
+                    translateZ={40}
+                    className="text-xs sm:text-sm text-muted-foreground"
+                  >
+                    24/7
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </div>
           </div>
         </section>
 
         {/* Contact Form */}
-        <section className="py-8 sm:py-12 lg:py-16 bg-white">
+        <section className="py-8 sm:py-12 lg:py-16 bg-card">
           <div className="mx-auto max-w-4xl px-3 sm:px-6 lg:px-8">
             <div className="mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
-                Send us a Message
-              </h2>
+              <TextGenerateEffect
+                words="Send us a Message"
+                className="text-2xl sm:text-3xl text-foreground mb-3 sm:mb-4"
+              />
               <p className="text-sm sm:text-base text-muted-foreground">
                 Fill out the form below and our team will get back to you within
                 24 hours.
@@ -164,7 +207,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                     placeholder="John Doe"
                   />
                 </div>
@@ -182,7 +225,7 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                     placeholder="Your Company"
                   />
                 </div>
@@ -203,7 +246,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -220,7 +263,7 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                     placeholder="+44 123 4567-890"
                   />
                 </div>
@@ -239,7 +282,7 @@ export default function ContactPage() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                 >
                   <option value="">Select a service...</option>
                   <option value="managed-it">Managed IT Services</option>
@@ -268,7 +311,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-white text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 border border-border rounded-lg focus:outline-none focus:border-primary bg-card text-sm sm:text-base"
                   placeholder="Tell us about your IT challenges and goals..."
                 />
               </div>

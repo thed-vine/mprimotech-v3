@@ -12,15 +12,19 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, icon, href }: ServiceCardProps) {
   return (
     <Link href={href}>
-      <div className="group h-full flex flex-col p-6 rounded-lg border border-border bg-white hover:shadow-lg hover:border-primary transition-all duration-300">
-        <div className="text-primary mb-4 flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition mx-auto sm:mx-0">
+      <div className="group h-full flex flex-col p-6 border border-border bg-card hover:bg-secondary/50 transition-colors duration-200">
+        <div className="text-foreground mb-4 group-hover:text-accent transition-colors duration-200">
           {icon}
         </div>
-        <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition">{title}</h3>
-        <p className="text-sm text-muted-foreground mb-4 flex-grow">{description}</p>
-        <div className="flex items-center gap-2 text-primary font-medium text-sm">
+        <h3 className="font-semibold text-foreground text-[15px] mb-2">
+          {title}
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed flex-grow mb-5">
+          {description}
+        </p>
+        <div className="flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-accent transition-colors duration-200 mt-auto">
           Learn More
-          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-200" />
         </div>
       </div>
     </Link>

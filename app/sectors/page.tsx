@@ -66,7 +66,7 @@ export default function SectorsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sectors.map((sector) => (
                 <Link key={sector.slug} href={`/sectors/${sector.slug}`}>
-                  <div className="group h-full flex flex-col p-8 rounded-lg border border-border bg-white hover:shadow-lg hover:border-primary transition-all duration-300">
+                    <div className="group h-full flex flex-col p-8 rounded-lg border border-border bg-card hover:shadow-lg hover:border-accent/60 transition-all duration-300">
                     <div className="text-5xl mb-4">{sector.icon}</div>
                     <h2 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition">
                       {sector.name}
@@ -90,7 +90,7 @@ export default function SectorsPage() {
             <p className="text-lg opacity-90 mb-8">
               We work with organizations across all sectors. Let's discuss your specific IT needs.
             </p>
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/contact">Contact Our Team</Link>
             </Button>
           </div>

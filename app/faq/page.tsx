@@ -87,7 +87,7 @@ export default function FAQPage() {
                   {section.questions.map((faq, qIndex) => (
                     <details
                       key={qIndex}
-                      className="group border border-border/60 bg-white dark:bg-card rounded-xl hover:border-primary/50 transition duration-200 overflow-hidden"
+                      className="group border border-border/60 bg-card rounded-xl hover:border-accent/60 transition duration-200 overflow-hidden"
                     >
                       <summary className="flex justify-between items-center font-semibold text-foreground p-5 cursor-pointer list-none select-none focus:outline-none">
                         <span className="text-base sm:text-lg leading-snug pr-4">{faq.q}</span>
@@ -107,7 +107,7 @@ export default function FAQPage() {
         </section>
 
         {/* Additional Help */}
-        <section className="py-16 bg-white border-t border-border">
+        <section className="py-16 bg-card border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">Still have questions?</h2>
@@ -150,7 +150,7 @@ export default function FAQPage() {
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
               Stop losing hours every week to duplicate data entry, paper forms, and rota confusion. Let us come on site and fix it.
             </p>
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold px-8 h-12">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-8 h-12">
               <Link href="/book-consultation">Book an On-Site Review</Link>
             </Button>
           </div>

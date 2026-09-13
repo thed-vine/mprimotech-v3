@@ -16,6 +16,7 @@ import {
   Loader2,
   Star
 } from "lucide-react"
+import { BackgroundBeams } from "@/components/ui/background-beams"
 
 // ... (ServiceCard component stays the same as before) ...
 const ServiceCard = ({ type, isSelected, onClick }: any) => (
@@ -204,21 +205,22 @@ export default function BookConsultationPage() {
         `}
       </Script>
       <Header />
-      <main className="bg-slate-50 min-h-screen pb-20">
+      <main className="bg-background min-h-screen pb-20">
         {/* ... (Header sections same as before) ... */}
         
         {/* Mobile Header */}
         <div className="bg-primary text-white py-12 px-4 text-center sm:hidden">
             <h1 className="text-3xl font-bold mb-2">Book an On-Site Review</h1>
-            <p className="text-blue-100 text-sm">Direct access to UK automation specialists.</p>
+            <p className="text-primary-foreground/80 text-sm">Direct access to UK automation specialists.</p>
         </div>
 
         {/* Desktop Header */}
         <section className="hidden sm:block bg-primary pt-20 pb-40 px-4 text-center text-white relative overflow-hidden">
+           <BackgroundBeams className="absolute inset-0 opacity-30" />
            <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
            <div className="relative z-10 max-w-3xl mx-auto">
              <h1 className="text-5xl font-bold mb-6">Stop playing phone tag.</h1>
-             <p className="text-xl text-blue-100 leading-relaxed">
+             <p className="text-xl text-primary-foreground/80 leading-relaxed">
                Book an on-site admin review or discovery chat with our UK team.
              </p>
            </div>
@@ -363,8 +365,8 @@ export default function BookConsultationPage() {
                                             onClick={() => setSelectedTime(time)}
                                             className={`py-3 px-4 rounded-lg text-sm font-semibold border transition-all
                                                 ${selectedTime === time 
-                                                    ? "bg-blue-600 text-white border-blue-600 shadow-md" 
-                                                    : "bg-white border-slate-200 hover:border-blue-400 text-slate-700"
+                                                     ? "bg-primary text-primary-foreground border-primary shadow-md" 
+                                                     : "bg-white border-slate-200 hover:border-primary/50 text-slate-700"
                                                 }`}
                                         >
                                             {time}
